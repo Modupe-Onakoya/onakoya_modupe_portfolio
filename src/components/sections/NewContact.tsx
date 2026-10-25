@@ -84,7 +84,7 @@ export default function Contact() {
                         <textarea className={`${fieldClasses} min-h-[100px] resize-y`} required name="message" value={form.message} onChange={handleChange} placeholder={contact.fields.message.placeholder} />
                     </Field>
 
-                    <Button className="col-span-1 mt-2 justify-self-start border-0 sm:col-span-2" type="submit" disabled={status === "sending"}>
+                    <Button className="col-span-1 mt-2 justify-self-start border-0 sm:col-span-2" type="submit" >
                         {buttonText}
                     </Button>
                     {status === "error" && <p className="col-span-1 text-xs text-red-400 sm:col-span-2">Something went wrong. Please try again.</p>}
