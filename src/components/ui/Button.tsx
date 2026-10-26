@@ -12,15 +12,17 @@ interface CommonProps {
 
 type ButtonProps =
   | (CommonProps & {
-      href: string;
-      onClick?: (event: MouseEvent<HTMLAnchorElement>) => void;
-      type?: never;
-    })
+    href: string;
+    onClick?: (event: MouseEvent<HTMLAnchorElement>) => void;
+    type?: never;
+  })
   | (CommonProps & {
-      href?: never;
-      onClick?: ButtonHTMLAttributes<HTMLButtonElement>["onClick"];
-      type?: ButtonHTMLAttributes<HTMLButtonElement>["type"];
-    });
+    href?: never;
+    onClick?: ButtonHTMLAttributes<HTMLButtonElement>["onClick"];
+    type?: ButtonHTMLAttributes<HTMLButtonElement>["type"];
+    disabled?: boolean;
+
+  });
 
 export default function Button({ children, secondary = false, className = "", ...props }: ButtonProps) {
   const variant = secondary

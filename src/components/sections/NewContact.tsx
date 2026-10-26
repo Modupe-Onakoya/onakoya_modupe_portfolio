@@ -20,6 +20,12 @@ function Field({ label, className = "", children }: { label: string; className?:
         </label>
     );
 }
+type ButtonProps = {
+    className?: string;
+    children: React.ReactNode;
+    type?: "button" | "submit";
+    disabled?: boolean;   // add this line
+};
 
 export default function Contact() {
     const [form, setForm] = useState(initialForm);
@@ -67,24 +73,24 @@ export default function Contact() {
                     </div>
                 </div>
 
-                <form className={`${reveal} grid max-w-[650px] grid-cols-1 gap-[32px_20px]  sm:grid-cols-2`} onSubmit={submit}>
+                <form className={`${reveal} grid max-w-[650px] grid-cols-1 gap-[32px_20px] sm:grid-cols-2`} onSubmit={submit}>
                     <Field label={contact.fields.name.label}>
                         <input className={fieldClasses} required name="name" value={form.name} onChange={handleChange} placeholder={contact.fields.name.placeholder} />
                     </Field>
                     <Field label={contact.fields.email.label}>
                         <input className={fieldClasses} required type="email" name="email" value={form.email} onChange={handleChange} placeholder={contact.fields.email.placeholder} />
                     </Field>
-                    <Field label={contact.fields.type.label} >
+                    <Field label={contact.fields.type.label}>
                         <select className={`${fieldClasses} [&>option]:bg-testimonial`} name="type" value={form.type} onChange={handleChange}>
-                            <option value="" disabled className="">{contact.fields.type.placeholder}</option>
-                            {projectTypes.map((type) => <option key={type} className="bg-black">{type}</option>)}
+                            <option value="" disabled>{contact.fields.type.placeholder}</option>
+                            {projectTypes.map((type) => <option key={type}>{type}</option>)}
                         </select>
                     </Field>
                     <Field label={contact.fields.message.label} className="col-span-1 sm:col-span-2">
                         <textarea className={`${fieldClasses} min-h-[100px] resize-y`} required name="message" value={form.message} onChange={handleChange} placeholder={contact.fields.message.placeholder} />
                     </Field>
 
-                    <Button className="col-span-1 mt-2 justify-self-start border-0 sm:col-span-2" type="submit" >
+                    <Button className="col-span-1 mt-2 justify-self-start border-0 sm:col-span-2" type="submit" disabled={status === "sending"}>
                         {buttonText}
                     </Button>
                     {status === "error" && <p className="col-span-1 text-xs text-red-400 sm:col-span-2">Something went wrong. Please try again.</p>}
