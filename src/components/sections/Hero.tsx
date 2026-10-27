@@ -6,6 +6,7 @@ import Button from "@/components/ui/Button";
 import Icon from "@/components/ui/Icon";
 import SocialLink from "@/components/ui/SocialLink";
 import { socialLinks } from "@/data/socialLinks";
+import { on } from "events";
 
 
 export default function Hero() {
@@ -48,11 +49,12 @@ export default function Hero() {
           <span>{typed}</span><i className="animate-blink ml-[5px] inline-block h-5 w-0.5 bg-electric motion-reduce:animate-none" />
         </div>
         <p className="max-w-[90%] text-[15px] leading-[1.7] text-muted lg:max-w-[520px]">{siteContent.heroDescription}</p>
-        <div className="flex gap-2 z-100  md:hidden ">{socialLinks.map((link) => <SocialLink link={link} key={link.label} />)}</div>
-
+        <div className="flex gap-2 z-49  md:hidden">{socialLinks.map((link) => <SocialLink link={link} key={link.label} />)}</div>
         <div className="mt-[34px] flex flex-col items-stretch gap-3 sm:flex-row">
           <Button href="#work">{siteContent.hero.primaryAction}</Button>
-          <Button href="#cv" secondary onClick={downloadCv}>{siteContent.hero.secondaryAction}</Button>
+          <Button href="/Onakoya_Modupe_cv.pdf" secondary download>
+            {siteContent.hero.secondaryAction}
+          </Button>
         </div>
       </div>
       <div className="absolute right-[8vw] bottom-[72px] z-2 hidden gap-[50px] text-[8px] leading-[1.8] tracking-[.17em] text-[#6f747e] lg:flex">
@@ -63,7 +65,9 @@ export default function Hero() {
       <a className="absolute bottom-[65px] left-[4vw] z-2 hidden items-center gap-[18px] text-[8px] tracking-[.2em] text-[#777c85] [writing-mode:vertical-rl] lg:flex lg:cursor-none" href="#about">
         <span>{siteContent.hero.scrollLabel.toUpperCase()}</span><i className="animate-bob grid size-[34px] rotate-90 place-items-center rounded-full border border-line motion-reduce:animate-none"><Icon name="arrow" /></i>
       </a>
-      <div className="flex gap-2 z-100 max-sm:hidden">{socialLinks.map((link) => <SocialLink link={link} key={link.label} />)}</div>
+
+      <div className="flex gap-2  max-sm:hidden z-49">{socialLinks.map((link) => <SocialLink link={link} key={link.label} />)}</div>
+
 
     </section>
   );

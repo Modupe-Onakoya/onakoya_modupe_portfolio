@@ -2,7 +2,7 @@ import type { ButtonHTMLAttributes, MouseEvent, ReactNode } from "react";
 import Icon from "./Icon";
 
 const baseClasses =
-  "inline-flex min-h-[52px] items-center justify-between gap-7 border border-electric bg-electric px-6 text-[11px] uppercase tracking-[.13em] text-white transition-all duration-200 hover:-translate-y-[3px] hover:bg-[#4c7cff] hover:shadow-[0_15px_40px_rgba(53,108,255,.25)] lg:justify-center lg:cursor-none";
+  "inline-flex min-h-[52px] items-center justify-between gap-7 border border-electric bg-electric px-6 text-[11px] uppercase tracking-[.13em] text-white transition-all duration-200 hover:-translate-y-[3px] hover:bg-[#4c7cff] hover:shadow-[0_15px_40px_rgba(53,108,255,.25)] lg:justify-center lg:cursor-none disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0";
 
 interface CommonProps {
   children: ReactNode;
@@ -14,14 +14,18 @@ type ButtonProps =
   | (CommonProps & {
     href: string;
     onClick?: (event: MouseEvent<HTMLAnchorElement>) => void;
+    download?: boolean | string;
+    target?: string;
     type?: never;
+    disabled?: never;
   })
   | (CommonProps & {
     href?: never;
     onClick?: ButtonHTMLAttributes<HTMLButtonElement>["onClick"];
     type?: ButtonHTMLAttributes<HTMLButtonElement>["type"];
     disabled?: boolean;
-
+    download?: never;
+    target?: never;
   });
 
 export default function Button({ children, secondary = false, className = "", ...props }: ButtonProps) {
@@ -33,9 +37,29 @@ export default function Button({ children, secondary = false, className = "", ..
 
   if (props.href) {
     const linkProps = props as Extract<ButtonProps, { href: string }>;
-    return <a className={classes} href={linkProps.href} onClick={linkProps.onClick}>{children}{icon}</a>;
+    return (
+      <a
+        className={classes}
+        href={linkProps.href}
+        onClick={linkProps.onClick}
+        download={linkProps.download}
+        target={linkProps.target}
+        rel={linkProps.target === "_blank" ? "noreferrer" : undefined}
+      >
+        {children}{icon}
+      </a>
+    );
   }
 
   const buttonProps = props as Extract<ButtonProps, { href?: never }>;
-  return <button className={classes} type={buttonProps.type} onClick={buttonProps.onClick}>{children}{icon}</button>;
+  return (
+    <button
+      className={classes}
+      type={buttonProps.type}
+      onClick={buttonProps.onClick}
+      disabled={buttonProps.disabled}
+    >
+      {children}{icon}
+    </button>
+  );
 }
