@@ -1,42 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-  color-scheme: dark;
-}
-
 @theme {
-  --animate-marquee: marquee 25s linear infinite;
-}
+  --font-sans: "Space Grotesk", sans-serif;
 
+  --color-ink: #08090b;
+  --color-surface: #0e1014;
+  --color-panel: #0c0d10;
+  --color-work: #0b0c0f;
+  --color-contact: #0a0b0e;
+  --color-testimonial: #111318;
+  --color-line: rgba(255, 255, 255, 0.12);
+  --color-muted: #8b909a;
+  --color-paper: #f4f5f7;
+  --color-electric: #356cff;
+  --color-electric-light: #789aff;
+  --color-ember: #ff6534;
+  --color-available: #5bea8b;
+  --color-subtle: #c8cbd0;
+  --color-eyebrow: #9da2ac;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --breakpoint-sm: 37.5rem;
+  --breakpoint-lg: 56.25rem;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --animate-float: float 8s ease-in-out infinite;
+  --animate-blink: blink 0.8s infinite;
+  --animate-bob: bob 2s infinite;
+  --animate-marquee: marquee 20s linear infinite;
+  --animate-quote-scroll: quote-scroll 35s linear infinite;
+
+  @keyframes float {
+    50% {
+      transform: translate3d(-5%, 8%, 0) scale(1.08);
+    }
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-@keyframes marquee {
-  from {
-    transform: translateX(0);
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
   }
 
-  to {
-    transform: translateX(-50%);
+  @keyframes bob {
+    50% {
+      transform: rotate(90deg) translateX(7px);
+    }
+  }
+
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes quote-scroll {
+    to {
+      transform: translateX(calc(-50% - 9px));
+    }
   }
 }
