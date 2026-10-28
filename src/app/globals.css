@@ -59,3 +59,15 @@
     }
   }
 }
+
+@layer base {
+  html {
+    color-scheme: dark;
+    background: var(--color-ink);
+  }
+
+  body {
+    background: var(--color-ink);
+    color: #fff;
+  }
+}

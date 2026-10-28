@@ -3,9 +3,14 @@ import Icon from "./Icon";
 
 const delays = ["delay-0", "delay-[80ms]", "delay-[160ms]", "delay-[240ms]"];
 
+const borders =
+  "border-b border-line last:border-b-0 " +
+  "sm:border-r sm:max-lg:even:border-r-0 sm:max-lg:[&:nth-last-child(-n+2)]:border-b-0 " +
+  "lg:border-b-0 lg:border-r lg:last:border-r-0";
+
 export default function SkillCard({ skill, index }: { skill: SkillGroup; index: number }) {
   return (
-    <article className={`group reveal relative min-h-0 translate-y-[35px] overflow-hidden border-b border-line p-8 opacity-0 transition-all duration-400 after:absolute after:inset-x-0 after:bottom-0 after:h-0 after:bg-linear-to-t after:from-electric/15 after:to-transparent after:transition-[height] after:duration-400 hover:-translate-y-2 hover:bg-white/[.02] hover:after:h-[65%] sm:min-h-[390px] sm:border-r sm:[&:nth-child(2)]:border-r-0 lg:min-h-[450px] lg:border-b-0 lg:[&:last-child]:border-r-0 [&.visible]:translate-y-0 [&.visible]:opacity-100 ${delays[index]}`}>
+    <article className={`group reveal relative min-h-0 translate-y-[35px] overflow-hidden p-8 opacity-0 transition-all duration-400 after:absolute after:inset-x-0 after:bottom-0 after:h-0 after:bg-linear-to-t after:from-electric/15 after:to-transparent after:transition-[height] after:duration-400 hover:-translate-y-2 hover:bg-white/[.02] hover:after:h-[65%] sm:min-h-[390px] lg:min-h-[450px] [&.visible]:translate-y-0 [&.visible]:opacity-100 ${borders} ${delays[index]}`}>
       <div className="flex justify-between text-[#7fa0ff]">
         <span className="grid size-[52px] place-items-center border border-line"><Icon name={skill.icon} size={25} /></span>
         <small className="text-[#555a64]">0{index + 1}</small>
