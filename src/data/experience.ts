@@ -14,8 +14,8 @@ export const experience: Experience[] = [
   },
   {
     period: "April 2026 — Present",
-    role: "Frontend Developer",
-    company: "Independent",
-    text: "Working independently on frontend projects, delivering practical web solutions for clients while continuously refining my skills and pushing my technical capabilities further.",
+    role: "Frontend Engineer",
+    company: "Golad Technologies",
+    text: "Architect and develop scalable, production-ready web applications using modern frontend technologies. Design and implement reusable component systems and modular frontend architectures to improve code maintainability and development efficiency.",
   },
 ];
