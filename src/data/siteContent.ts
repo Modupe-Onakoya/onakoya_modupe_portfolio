@@ -8,7 +8,7 @@ export const siteContent = {
   name: "Onakoya Modupe",
   email: "hello@onakoyamodupe0@gmail.com",
   location: "Ibadan Nigeria",
-  roleLine: "Frontend Engineer  •  React  •  Next.js",
+  roleLine: "Frontend Engineer  •  Next.js  •  TypeScript",
   heroDescription: "I build expressive digital products where sharp engineering meets distinct visual direction. Spot the gap. Shape the idea. Build it better",
   hero: {
     availability: "Available for select projects",
