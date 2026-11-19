@@ -6,12 +6,12 @@ export interface Experience {
 }
 
 export const experience: Experience[] = [
-  // {
-  //   period: "Nov 2026 — Present",
-  //   role: "Frontend Engineer",
-  //   company: "Golad Technologies",
-  //   text: "Architect and develop scalable, production-ready web applications using modern frontend technologies. Design and implement reusable component systems and modular frontend architectures to improve code maintainability and development efficiency.",
-  // },
+  {
+    period: "May 2026 — Present",
+    role: "Freelance Frontend Developer",
+    company: "Independent Projects",
+    text: "Working on freelance projects while designing, developing, and refining personal products, exploring new ideas, and continuously improving my engineering skills."
+  },
   {
     period: "January 2026 — April 2026",
     role: " Frontend Developer Intern",
