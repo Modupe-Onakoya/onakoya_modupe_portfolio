@@ -20,7 +20,17 @@ export const projects: Project[] = [
     github: "https://github.com/Modupe-Onakoya/solara-energy",
     live: "https://solara-energy-34sy.vercel.app/"
   },
-
+  {
+    title: "Ember & Salt",
+    type: "restaurant-website",
+    year: "2026",
+    stack: ["Next.js", "TypeScript", "Tailwind CSS"],
+    image: "/ember.png",
+    description:
+      "A responsive three-page restaurant website where guests can browse a categorised menu and request a table. Features tabbed menu browsing, a reservation form with day-aware time slots and validation, and a navbar that adapts to each page.",
+    github: "https://github.com/Modupe-Onakoya/resturant-site",
+    live: "https://resturant-site-one.vercel.app/",
+  },
   {
     title: "Sneak Lovers — Multi-Brand Footwear E-commerce Platform",
     type: "ecommerce platform",
